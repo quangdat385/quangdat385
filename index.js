@@ -18,7 +18,7 @@ app.set('views', path.join(__dirname, 'resources/views'))
 
 
 app.get('/', (req, res) => {
-
+    console.log('abc')
     res.render('home')
 })
 app.get('/news', (req, res) => {
