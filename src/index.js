@@ -6,34 +6,22 @@ const morgan = require('morgan')
 
 const app = express()
 const port = 3004
+const route= require('./routes')
 const hbs = handlebars.create({ extname: '.hbs' })
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(morgan('combined'))
+app.use(express.urlencoded({
+    extended:true
+}))//xu ly dnag fom
+app.use(express.json())//su ly dang axios
 
 app.engine('.hbs', hbs.engine)
 app.set('view engine', '.hbs')
 app.set('views', path.join(__dirname, 'resources/views'))
 
-console.log(path.join(__dirname, 'resources/views'))
+route(app)
 
 
-//basic routing
-//main routing
-app.get('/', (req, res) => {
-    console.log('abc')
-    res.render('home')
-})
-//sub routing
-app.get('/news', (req, res) => {
-    
-    res.render('news')
-})
-
-//query parameters(?q=asdas&ref=f8&)
-app.get('/search', (req, res) => {
-    console.log(req.query)
-    res.render('search')
-})
 
 
 app.listen(port, () => {
