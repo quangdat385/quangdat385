@@ -17,14 +17,22 @@ app.set('views', path.join(__dirname, 'resources/views'))
 console.log(path.join(__dirname, 'resources/views'))
 
 
-
+//basic routing
+//main routing
 app.get('/', (req, res) => {
     console.log('abc')
     res.render('home')
 })
+//sub routing
 app.get('/news', (req, res) => {
-
+    
     res.render('news')
+})
+
+//query parameters(?q=asdas&ref=f8&)
+app.get('/search', (req, res) => {
+    console.log(req.query)
+    res.render('search')
 })
 
 
