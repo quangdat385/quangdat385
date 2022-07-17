@@ -1,0 +1,28 @@
+<div class="mt-4 p-4">
+    <h3>Cap Nhat Khoa Hoc</h3>
+    <form class="mt-4" method="POST" action="/courses/{{course._id}}?_method=PUT">
+    
+    <div class="mb-3">
+        <label for="name" class="form-label">Ten Khoa Hoc</label>
+        <input type="text" name="name" class="form-control"value="{{course.name}}" id="name" >
+    </div>
+
+    <div class="mb-3">
+        <label for="description" class="form-label">Mo Ta</label>
+        <textarea  name="description" class="form-control"  id="description" >{{course.description}}</textarea>textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="videoId" class="form-label">Video Id</label>
+        <input type="text" name="videoId" class="form-control"value="{{course.videoId}}" id="videoId" >
+    </div>
+
+    <div class="mb-3">
+        <label for="level" class="form-label">Level</label>
+        <input type="text" name="level" class="form-control"value="{{course.level}}" id="level" >
+    </div>
+    
+    
+    <button type="submit" class="btn btn-primary">Update Khoa Hoc</button>
+</form>
+</div>

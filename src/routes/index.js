@@ -1,10 +1,11 @@
 const newsRouter= require('./news')
-const express = require('express')
+const siteRouter= require('./site')
+const coursesRouter= require('./courses')
+const meRouter= require('./me')
+
 
 function route(app) {
-    app.use(express.urlencoded({
-        extended:true
-    }))
+    
     //basic routing
     //main routing
     // app.get('/', (req, res) => {
@@ -13,6 +14,11 @@ function route(app) {
     // })
     //sub routing
     app.use('/news', newsRouter)
+    app.use('/courses',coursesRouter)
+    app.use('/',siteRouter)
+    app.use('/me',meRouter)
+    
+
 
     //query parameters(?q=asdas&ref=f8&)
     // app.get('/search', (req, res) => {

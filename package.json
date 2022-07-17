@@ -6,7 +6,7 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "nodemon --inspect src/index.js",
-        "watch":"node-sass -w src/resources/scss/ -o src/public/css/"
+        "watch": "node-sass -w src/resources/scss/ -o src/public/css/"
     },
     "repository": {
         "type": "git",
@@ -20,9 +20,12 @@
     "homepage": "https://github.com/quangdat385/quangdat385#readme",
     "dependencies": {
         "express": "^4.18.1",
-        "express-handlebars": "^6.0.6"
+        "express-handlebars": "^6.0.6",
+        "method-override": "^3.0.0",
+        "mongoose-slug-generator": "^1.0.4"
     },
     "devDependencies": {
+        "mongoose": "^6.4.4",
         "morgan": "^1.10.0",
         "node-sass": "^7.0.1",
         "nodemon": "^2.0.19"
