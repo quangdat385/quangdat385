@@ -6,6 +6,7 @@ const meController=require('../app/controllers/MeControllers')
 
 
 router.get('/stored/courses',meController.storedCourses)
+router.get('/trash/courses',meController.trashCourses)
 
 
 

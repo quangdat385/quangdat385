@@ -1,6 +1,6 @@
 <div class="mt-4 p-4">
     <h3>Dang Khoa Hoc</h3>
-    <form method="POST" action="/courses/store">
+    <form method="POST" action="/courses/store" enctype="multipart/form-data">
     
     <div class="mb-3">
         <label for="name" class="form-label">Ten Khoa Hoc</label>
@@ -9,7 +9,7 @@
 
     <div class="mb-3">
         <label for="description" class="form-label">Mo Ta</label>
-        <input type="text" name="description" class="form-control" id="description" >
+        <textarea type="text" name="description" class="form-control" id="description" ></textarea>
     </div>
 
     <div class="mb-3">
@@ -20,6 +20,10 @@
     <div class="mb-3">
         <label for="level" class="form-label">Level</label>
         <input type="text" name="level" class="form-control" id="level" >
+    </div>
+    <div class="mb-3">
+        <label for="imgURL" class="form-label">imgURL</label>
+        <input type="file" name="imgURL" class="form-control" id="imgURL" >
     </div>
     
     

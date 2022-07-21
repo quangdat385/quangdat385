@@ -1,5 +1,6 @@
 <div class="mt-4">
     <h5>Khoa Hoc Cua Toi</h5>
+    <a href="/me/trash/courses">Thung Rac</a>
     <table class="table mt-4">
         <thead>
             <tr>
@@ -9,23 +10,77 @@
             <th scope="col" colspan="2">Thoi Gian Tao</th>
             </tr>
         </thead>
-    <tbody>
-        {{#each courses}}
+        <tbody>
+            {{#each courses}}
 
-        
+            
 
-            <tr>
-                <th scope="row">{{sum @index 1}}</th>
-                <td>{{this.name}}</td>
-                <td>{{this.level}}</td>
-                <td>{{this.createdAt}}</td>
-                <td>
-                    <a class="btn btn-link" href="/courses/{{this._id}}/edit">Sua</a>
-                    <a class="btn btn-link" href="">Xoa</a>
-                </td>
+                <tr>
+                    <th scope="row">{{sum @index 1}}</th>
+                    <td>{{this.name}}</td>
+                    <td>{{this.level}}</td>
+                    <td>{{this.createdAt}}</td>
+                    <td>
+                        <a class="btn btn-link" href="/courses/{{this._id}}/edit">Sua</a>
+                        <button class="btn btn-link" data-id="{{this._id}}"  data-toggle="modal" data-target="#delete-course-modal">Xoa</button>
+                    </td>
 
-            </tr>
-        {{/each}}
-    </tbody>
-</table>
+                </tr>
+
+                {{else}}
+                <tr>
+                    <td colspan="5">Ban Chua Dang Khoa Hoc</td>
+                    <a href="/courses/create">Dang Khoa Hoc</a>
+
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
 </div>
+
+<form name="delete-form-course" method="POST"></form>
+
+<div class="modal fade" id="delete-course-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Delete Course</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            Are You Sure Delete Course ???
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button id="btn-delete-course" type="button" class="btn btn-danger">Delete Course</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+        var btnDeleteCourse=document.getElementById("btn-delete-course")
+        var courseId;
+        var deleteForm=document.forms['delete-form-course']
+
+        $('#delete-course-modal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) 
+            var id = button.data('id')
+            console.log(id)
+            courseId=id
+        })
+
+        btnDeleteCourse.onclick=function(){
+            alert(courseId)
+            deleteForm.action='/courses/'+courseId+'?_method=DELETE'
+            deleteForm.submit()
+        }
+    })
+
+
+
+</script>
