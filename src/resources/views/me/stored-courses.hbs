@@ -1,6 +1,24 @@
 <div class="mt-4">
     <h5>Khoa Hoc Cua Toi</h5>
-    <a href="/me/trash/courses">Thung Rac</a>
+    <a href="/me/trash/courses">Thung Rac({{deletedCount}})</a>
+    <div class="mt-4">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+                Check All
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Select</label>
+            <select class="form-control" id="exampleFormControlSelect1">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            </select>
+        </div>
+    </div>
     <table class="table mt-4">
         <thead>
             <tr>
@@ -29,8 +47,11 @@
 
                 {{else}}
                 <tr>
-                    <td colspan="5">Ban Chua Dang Khoa Hoc</td>
-                    <a href="/courses/create">Dang Khoa Hoc</a>
+                    <td colspan="5">
+                        Ban Chua Dang Khoa Hoc
+                        <a href="/courses/create">Dang Khoa Hoc</a>
+                    </td>
+                    
 
                 </tr>
             {{/each}}

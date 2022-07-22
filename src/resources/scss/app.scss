@@ -1,23 +1,25 @@
 @import 'variables';
-
 * {
-    margin:0 auto;
-    padding:0;
+    margin: 0 auto;
+    padding: 0;
     box-sizing: border-box;
 }
+
 .d-flex {
     display: flex;
-    justify-content:space-around
+    justify-content: space-around
 }
+
 .box {
-    width:1200px;
+    width: 1200px;
     max-width: 100%;
-    margin:0 auto;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(0, 0, 0, 0.1);
 }
+
 .nav-img-f8 {
     height: 28px;
     width: 28px;
