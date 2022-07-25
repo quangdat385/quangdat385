@@ -53,6 +53,8 @@ router.post('/store', upload.single('imgURL'), courseController.store)
 router.get('/:slug', courseController.show)
     //toi trng edit->submit
 router.get('/:id/edit', courseController.edit)
+router.post('/actions', courseController.actions)
+
     //update vao database va dieu huong ve trang khoa hoc cua toi
 router.put('/:id', courseController.update)
 router.patch('/:id/restore', courseController.restore)

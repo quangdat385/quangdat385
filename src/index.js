@@ -4,6 +4,7 @@ const handlebars = require('express-handlebars')
 const morgan = require('morgan')
 const connect = require('../src/config/db')
 const methodOverride = require('method-override')
+const SortMiddleware = require('./app/middlewares/SortMiddleWare')
 
 
 
@@ -18,6 +19,7 @@ app.use(methodOverride('_method'))
 
 
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(SortMiddleware)
 
 app.use(morgan('combined'))
 app.use(express.urlencoded({

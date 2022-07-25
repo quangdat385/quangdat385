@@ -65,8 +65,8 @@ class CourseController {
             Course.findById(req.params.id)
                 .then(course =>
                     res.render('courses/edit', {
-                        // course:mongooseToObject(course)
-                        ...course
+                        course:mongooseToObject(course)
+                        
                     })
                 )
                 .catch(next)
@@ -92,6 +92,17 @@ class CourseController {
         Course.restore({ _id: req.params.id })
             .then(() => res.redirect('/me/trash/courses'))
             .catch(next)
+    }
+    actions(req, res, next) {
+        switch(req.body.action){
+            case 'delete':
+                Course.delete({ _id: {$in: req.body.courseIds}})
+                    .then(() => res.redirect('/me/stored/courses'))
+                    .catch(next)
+                break;
+            default:
+                res.json({message: 'Action is invalid' })  
+        }
     }
 
 }

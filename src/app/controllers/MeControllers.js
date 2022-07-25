@@ -6,7 +6,7 @@ class MeController {
 
 
     storedCourses(req, res, next) {
-
+        
         Promise.all([Course.countDocumentsDeleted(), Course.find({})])
             .then(([deletedCount, courses]) => {
                 res.render('me/stored-courses', {
